@@ -7,7 +7,6 @@
     <div class="register-logo">
         <a href="{{ url('/') }}">{{ setting('core::site-name') }}</a>
     </div>
-
     <div class="register-box-body">
         <p class="login-box-msg">{{ trans('user::auth.register') }}</p>
         {!! Form::open(['route' => 'register.post']) !!}
@@ -29,6 +28,15 @@
                    {{--placeholder="{{ trans('user::auth.role') }}" value="{{ old('role') }}">--}}
             {{--<span class="glyphicon glyphicon-envelope form-control-feedback"></span>--}}
             {!! $errors->first('role', '<span class="help-block">:message</span>') !!}
+        </div>
+        <div class="form-group has-feedback {{ $errors->has('company') ? ' has-error has-feedback' : '' }} company">
+            <select name="company" class="form-control">
+                <option value="0">Please select</option>
+                @foreach($companies as $company)
+                        <option value="{{$company->id}}">{{$company->name}}</option>
+                @endforeach
+            </select>
+            {!! $errors->first('company', '<span class="help-block">:message</span>') !!}
         </div>
         <div class="form-group has-feedback {{ $errors->has('first-name') ? ' has-error has-feedback' : '' }}">
             <input type="text" name="first_name" class="form-control" autofocus

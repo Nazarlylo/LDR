@@ -1,5 +1,6 @@
 <?php namespace Modules\User\Services;
 
+use App\UsersCompany;
 use Modules\Core\Contracts\Authentication;
 use Modules\User\Events\UserHasRegistered;
 use Modules\User\Repositories\RoleRepository;
@@ -41,7 +42,7 @@ class UserRegistration
         }
 
         $this->assignUserToUsersGroup($user, $this->input);
-
+        $this->usertocompany($user,$this->input);
         event(new UserHasRegistered($user));
 
         return $user;
@@ -59,6 +60,13 @@ class UserRegistration
         $role = $this->role->findByName($input['role']);
         $this->auth->assignRole($user, $role );
     }
+
+   private function usertocompany($user,$input)
+{
+    if($input['company'] !=0) {
+        UsersCompany::create([ 'user_id' => $user->id, 'company_id' => $input['company'] ]);
+    }
+}
 
     /**
      * Check if the request input has a profile key

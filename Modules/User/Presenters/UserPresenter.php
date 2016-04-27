@@ -24,8 +24,6 @@ class UserPresenter extends Presenter
      * @return string
      */
     public function id(){
-
-
        $id = User::where('email',$this->email)->first();
        return $id->id;
   }

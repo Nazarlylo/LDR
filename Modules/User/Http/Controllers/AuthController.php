@@ -1,6 +1,7 @@
 <?php namespace Modules\User\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Modules\Company\Entities\Company;
 use Modules\Core\Http\Controllers\BasePublicController;
 use Modules\User\Entities\Usher\Role;
 use Modules\User\Exceptions\InvalidOrExpiredResetCode;
@@ -44,7 +45,8 @@ class AuthController extends BasePublicController
     {
         $this->role = $role;
         $roles = $this->role->all();
-        return view('user::public.register',compact('roles'));
+        $companies = Company::all();
+        return view('user::public.register',compact('roles','companies'));
     }
 
     public function postRegister(RegisterRequest $request)
