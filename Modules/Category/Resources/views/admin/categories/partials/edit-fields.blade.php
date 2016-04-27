@@ -13,7 +13,8 @@
     </div>
     <div class='form-group{{ $errors->has("{$lang}[slug]") ? ' has-error' : '' }}'>
         {!! Form::label("{$lang}[parent_id]", trans('category::categories.form.maincategory')) !!}
-        {!! Form::select('parent_id', $category_list, old('parent_id', $category_parent->id), ['class' => 'form-control slug', 'data-slug' => 'target']) !!}
+        <?php if($category_parent){$cat = $category_parent->id;}else{$cat = '-';}?>
+        {!! Form::select('parent_id', $category_list, old('parent_id', $cat), ['class' => 'form-control slug', 'data-slug' => 'target']) !!}
         {!! $errors->first("{$lang}[parent_id]", '<span class="help-block">:message</span>') !!}
 
     </div>

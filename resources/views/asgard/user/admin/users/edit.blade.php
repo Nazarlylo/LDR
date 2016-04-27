@@ -27,6 +27,13 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="col-sm-4">
+                                <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+                                    {!! Form::label('username', trans('user::users.form.username')) !!}
+                                    {!! Form::text('username', Input::old('username',$user->username), ['class' => 'form-control', 'placeholder' => trans('user::users.form.username')]) !!}
+                                    {!! $errors->first('username', '<span class="help-block">:message</span>') !!}
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
                                 <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
                                     {!! Form::label('first_name', trans('user::users.form.first-name')) !!}
                                     {!! Form::text('first_name', Input::old('first_name', $user->first_name), ['class' => 'form-control', 'placeholder' => trans('user::users.form.first-name')]) !!}
@@ -45,6 +52,64 @@
                                     {!! Form::label('email', trans('user::users.form.email')) !!}
                                     {!! Form::email('email', Input::old('email', $user->email), ['class' => 'form-control', 'placeholder' => trans('user::users.form.email')]) !!}
                                     {!! $errors->first('email', '<span class="help-block">:message</span>') !!}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group{{ $errors->has('email_2') ? ' has-error' : '' }}">
+                                    {!! Form::label('email_2', trans('user::users.form.email_2')) !!}
+                                    {!! Form::email('email_2', Input::old('email_2',$user->email_2), ['class' => 'form-control', 'placeholder' => trans('user::users.form.email_2')]) !!}
+                                    {!! $errors->first('email_2', '<span class="help-block">:message</span>') !!}
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group{{ $errors->has('mobile_phone') ? ' has-error' : '' }}">
+                                    {!! Form::label('mobile_phone', trans('user::users.form.mobile_phone')) !!}
+                                    {!! Form::text('mobile_phone', Input::old('mobile_phone',$user->mobile_phone), ['class' => 'form-control', 'placeholder' => trans('user::users.form.mobile_phone')]) !!}
+                                    {!! $errors->first('mobile_phone', '<span class="help-block">:message</span>') !!}
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                                    {!! Form::label('address', trans('user::users.form.address')) !!}
+                                    {!! Form::text('address', Input::old('address',$user->address), ['class' => 'form-control', 'placeholder' => trans('user::users.form.address')]) !!}
+                                    {!! $errors->first('address', '<span class="help-block">:message</span>') !!}
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group{{ $errors->has('postcode') ? ' has-error' : '' }}">
+                                    {!! Form::label('postcode', trans('user::users.form.postcode')) !!}
+                                    {!! Form::text('postcode', Input::old('postcode',$user->postcode), ['class' => 'form-control', 'placeholder' => trans('user::users.form.postcode')]) !!}
+                                    {!! $errors->first('postcode', '<span class="help-block">:message</span>') !!}
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group{{ $errors->has('place') ? ' has-error' : '' }}">
+                                    {!! Form::label('place', trans('user::users.form.place')) !!}
+                                    {!! Form::text('place', Input::old('place',$user->postcode), ['class' => 'form-control', 'placeholder' => trans('user::users.form.place')]) !!}
+                                    {!! $errors->first('place', '<span class="help-block">:message</span>') !!}
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group{{ $errors->has('address_2') ? ' has-error' : '' }}">
+                                    {!! Form::label('address_2', trans('user::users.form.address_2')) !!}
+                                    {!! Form::text('address_2', Input::old('address_2',$user->address_2), ['class' => 'form-control', 'placeholder' => trans('user::users.form.address_2')]) !!}
+                                    {!! $errors->first('address_2', '<span class="help-block">:message</span>') !!}
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group{{ $errors->has('address_3') ? ' has-error' : '' }}">
+                                    {!! Form::label('address_3', trans('user::users.form.address_3')) !!}
+                                    {!! Form::text('address_3', Input::old('address_3',$user->address_3), ['class' => 'form-control', 'placeholder' => trans('user::users.form.address_3')]) !!}
+                                    {!! $errors->first('address_3', '<span class="help-block">:message</span>') !!}
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group{{ $errors->has('address_4') ? ' has-error' : '' }}">
+                                    {!! Form::label('address_4', trans('user::users.form.address_4')) !!}
+                                    {!! Form::text('address_4', Input::old('address_4',$user->address_4), ['class' => 'form-control', 'placeholder' => trans('user::users.form.address_4')]) !!}
+                                    {!! $errors->first('address_4', '<span class="help-block">:message</span>') !!}
                                 </div>
                             </div>
                         </div>
